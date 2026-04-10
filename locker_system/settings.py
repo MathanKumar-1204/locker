@@ -178,6 +178,73 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Logging Configuration
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+#             'style': '{',
+#         },
+#         'simple': {
+#             'format': '{levelname} {message}',
+#             'style': '{',
+#         },
+#         'json': {
+#             '()': 'pythonjsonlogger.jsonlogger.JsonFormatter',
+#             'fmt': '%(levelname) %(name) %(asctime) %(module) %(message)',
+#         },
+#     },
+#     'handlers': {
+#         'console': {
+#             'level': 'INFO',
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'verbose',
+#         },
+#         'file': {
+#             'level': 'INFO',
+#             'class': 'logging.FileHandler',
+#             'filename': BASE_DIR / 'logs' / 'app.log',
+#             'formatter': 'verbose',
+#         },
+#         'error_file': {
+#             'level': 'ERROR',
+#             'class': 'logging.FileHandler',
+#             'filename': BASE_DIR / 'logs' / 'error.log',
+#             'formatter': 'verbose',
+#         },
+#         'elasticapm': {
+#             'level': 'INFO',
+#             'class': 'elasticapm.contrib.django.handlers.LoggingHandler',
+#         },
+#     },
+#     'root': {
+#         'handlers': ['console', 'file', 'elasticapm'],
+#         'level': 'INFO',
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console', 'file', 'elasticapm'],
+#             'level': 'INFO',
+#             'propagate': False,
+#         },
+#         'accounts': {
+#             'handlers': ['console', 'file', 'error_file', 'elasticapm'],
+#             'level': 'INFO',
+#             'propagate': False,
+#         },
+#         'lockers': {
+#             'handlers': ['console', 'file', 'error_file', 'elasticapm'],
+#             'level': 'INFO',
+#             'propagate': False,
+#         },
+#         'reservations': {
+#             'handlers': ['console', 'file', 'error_file', 'elasticapm'],
+#             'level': 'INFO',
+#             'propagate': False,
+#         },
+#     },
+# }
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -186,31 +253,11 @@ LOGGING = {
             'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
             'style': '{',
         },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
-        },
-        'json': {
-            '()': 'pythonjsonlogger.jsonlogger.JsonFormatter',
-            'fmt': '%(levelname) %(name) %(asctime) %(module) %(message)',
-        },
     },
     'handlers': {
         'console': {
             'level': 'INFO',
             'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
-        },
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.FileHandler',
-            'filename': BASE_DIR / 'logs' / 'app.log',
-            'formatter': 'verbose',
-        },
-        'error_file': {
-            'level': 'ERROR',
-            'class': 'logging.FileHandler',
-            'filename': BASE_DIR / 'logs' / 'error.log',
             'formatter': 'verbose',
         },
         'elasticapm': {
@@ -219,33 +266,32 @@ LOGGING = {
         },
     },
     'root': {
-        'handlers': ['console', 'file', 'elasticapm'],
+        'handlers': ['console', 'elasticapm'],
         'level': 'INFO',
     },
     'loggers': {
         'django': {
-            'handlers': ['console', 'file', 'elasticapm'],
+            'handlers': ['console', 'elasticapm'],
             'level': 'INFO',
             'propagate': False,
         },
         'accounts': {
-            'handlers': ['console', 'file', 'error_file', 'elasticapm'],
+            'handlers': ['console', 'elasticapm'],
             'level': 'INFO',
             'propagate': False,
         },
         'lockers': {
-            'handlers': ['console', 'file', 'error_file', 'elasticapm'],
+            'handlers': ['console', 'elasticapm'],
             'level': 'INFO',
             'propagate': False,
         },
         'reservations': {
-            'handlers': ['console', 'file', 'error_file', 'elasticapm'],
+            'handlers': ['console', 'elasticapm'],
             'level': 'INFO',
             'propagate': False,
         },
     },
 }
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
