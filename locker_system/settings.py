@@ -121,11 +121,15 @@ WSGI_APPLICATION = 'locker_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
+        'NAME': os.environ.get('DB_NAME', 'postgres'),
+        'USER': os.environ.get('DB_USER', 'postgres.ecmujpmhbwzwbrrxneng'),
         'PASSWORD': os.environ.get('DB_PASSWORD', 'Matahn@lock1204'),
-        'HOST': 'aws-0-ap-south-1.pooler.supabase.com', # Use the POOLER host, not the direct host
-        'PORT': '6543',
+        'HOST': os.environ.get('DB_HOST', 'aws-1-ap-northeast-1.pooler.supabase.com'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
+        'CONN_MAX_AGE': 600,  # Persistent connections (10 minutes)
+        'OPTIONS': {
+            'sslmode': 'require',  # Required for Supabase
+        },
     }
 }
 
