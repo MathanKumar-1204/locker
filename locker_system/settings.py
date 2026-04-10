@@ -124,8 +124,8 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': os.environ.get('DB_PASSWORD', 'Matahn@lock1204'),
-        'HOST': os.environ.get('DB_HOST', 'db.ecmujpmhbwzwbrrxneng.supabase.co'),
-        'PORT': os.environ.get('DB_PORT', '5432'),
+        'HOST': 'aws-0-ap-south-1.pooler.supabase.com', # Use the POOLER host, not the direct host
+        'PORT': '6543',
     }
 }
 
