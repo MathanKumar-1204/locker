@@ -58,8 +58,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-@m3maw01dgdc0rldw7qq7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',') if os.environ.get('ALLOWED_HOSTS') else []
+# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',') if os.environ.get('ALLOWED_HOSTS') else []
+# locker_system/settings.py
 
+# Allow local development and your specific Vercel app domain
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'locker-sigma.vercel.app', '.vercel.app']
 
 # Application definition
 
